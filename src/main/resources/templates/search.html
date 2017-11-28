@@ -36,9 +36,21 @@
 
     <hr />
 
-    <!-- TODO #2 - Loop over jobs map to display all job fields -->
+    <h3 th:if="${jobs}" th:text="${jobs.size()} + ' result(s)'"></h3>
+
+    <table th:fragment="job-listing" class="job-listing" th:each="job : ${jobs}">
+        <tr th:each="map : ${job}">
+            <td style="text-transform: capitalize;" th:text="${map.key}"></td>
+            <td th:text="${map.value}"></td>
+        </tr>
+    </table>
 
 </div>
 
 </body>
 </html>
+
+
+
+
+
